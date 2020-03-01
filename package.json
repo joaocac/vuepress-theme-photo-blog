@@ -1,0 +1,15 @@
+{
+  "name": "vuepress-theme-photo-blog",
+  "version": "1.0.0",
+  "description": "Vuepress Photo Blog template",
+  "main": "index.js",
+  "repository": "https://github.com/joaocac/vuepress-theme-photo-blog.git",
+  "author": "Joao Correia",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "remove-markdown": "^0.3.0",
+    "vuepress-plugin-janitor": "^1.0.0",
+    "vuepress-plugin-reading-time": "^0.1.1"
+  }
+}
