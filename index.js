@@ -3,7 +3,7 @@ const removeMd = require("remove-markdown");
 module.exports = (themeConfig, ctx) => {
     const { siteConfig, pluginAPI } = ctx;
 
-    console.log(siteConfig);
+    // console.log(siteConfig);
     themeConfig = Object.assign(themeConfig, {
       summary: !!themeConfig.summary,
       summaryLength: typeof themeConfig.summaryLength === "number"
@@ -13,7 +13,15 @@ module.exports = (themeConfig, ctx) => {
 
     const plugins = [
 		'vuepress-plugin-reading-time',
-		'vuepress-plugin-janitor'
+        'vuepress-plugin-janitor',
+        ['@vuepress/register-components', {
+            components: [
+                {
+                    name: 'VueOwlCarousel',
+                    path: 'vue-owl-carousel',
+                },
+            ],
+        }],
 	]
 
     // MAKE SUPPORT FOR GTA as in https://github.com/bykclk/vuepress-plugin-google-tag-manager
@@ -33,7 +41,10 @@ module.exports = (themeConfig, ctx) => {
 
     const config = {
         extend: '@vuepress/theme-default',
-        globalLayout: './layouts/GlobalLAyout.vue',
+        globalLayout: './layouts/GlobalLayout.vue',
+        head: [
+            ['link', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700'}],
+        ],
         plugins,
     }
 
@@ -41,7 +52,7 @@ module.exports = (themeConfig, ctx) => {
      * Generate summary.
      */
     config.extendPageData = pageContext => {
-        console.log('Generate summary', pageContext)
+        // console.log('Generate summary', pageContext)
         const strippedContent = pageContext._strippedContent
         if (!strippedContent) {
             return

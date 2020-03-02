@@ -1,6 +1,4 @@
-import resize from './directives/resize'
-import scroll from './directives/scroll'
-
+// import VueOwlCarousel from 'vue-owl-carousel'
 export default ({
         Vue, // the version of Vue being used in the VuePress app
         options, // the options for the root Vue instance
@@ -9,6 +7,5 @@ export default ({
         isServer // is this enhancement applied in server-rendering or client
     }) => {
         // ...apply enhancements to the app
-        Vue.use(resize)
-        Vue.use(scroll)
+        // Vue.component('VuewOwlCarousel', require('vue-owl-carousel'));
     }
